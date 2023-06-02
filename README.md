@@ -6,4 +6,4 @@ This is a Rest API for User and Umkm data using Express JS.
     jualin-api-test (for: import and test in postman)
     
 2. start server : npm run start 
-3. Note : new update (pastikan untuk meng impor file database dan postman)
+3. Note : new update (pastikan untuk meng impor file database dan postman terbaru)
