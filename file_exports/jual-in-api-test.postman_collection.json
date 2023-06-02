@@ -34,7 +34,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/user/6",
+							"raw": "http://localhost:3000/api/user/25",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -43,7 +43,7 @@
 							"path": [
 								"api",
 								"user",
-								"6"
+								"25"
 							]
 						}
 					},
@@ -56,7 +56,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"ari123@example.com\",\r\n  \"password\": \"ari12345\"\r\n}",
+							"raw": "{\r\n  \"email\": \"antibegal87@gmail.com\",\r\n  \"password\": \"password\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -86,7 +86,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Ari Mulyanto\",\r\n  \"email\": \"ari123@example.com\",\r\n  \"password\": \"password\"\r\n}",
+							"raw": "{\r\n  \"name\": \"Ilham Andre\",\r\n  \"email\": \"antibegal87@gmail.com\",\r\n  \"password\": \"password\",\r\n  \"role\" : \"Customers\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -116,13 +116,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2OTIyOTZ9.d34NihjBARteNLiEfysxRVpo4BVU1YPAHhGVuTtTzx8",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Ari Mulyanto\",\r\n  \"email\": \"ari123@example.com\",\r\n  \"password\": \"ari12345\"\r\n}",
+							"raw": "{\r\n  \"name\": \"Ari Mulyanto\",\r\n  \"email\": \"ari123@example.com\",\r\n  \"password\": \"password\",\r\n  \"alamat\" : \"Jl Priksan, Gg Bengkel\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -130,7 +130,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/update/18",
+							"raw": "http://localhost:3000/api/user/update/24",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -140,7 +140,7 @@
 								"api",
 								"user",
 								"update",
-								"18"
+								"24"
 							]
 						}
 					},
@@ -153,7 +153,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2OTIyOTZ9.d34NihjBARteNLiEfysxRVpo4BVU1YPAHhGVuTtTzx8",
 								"type": "default"
 							}
 						],
@@ -163,12 +163,12 @@
 								{
 									"key": "photo",
 									"type": "file",
-									"src": "/C:/Users/arimlynt/Pictures/1.jpg"
+									"src": "/C:/Users/arimlynt/Music/IMG20230530114319.jpg"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/user/upload-photo/18",
+							"raw": "http://localhost:3000/api/user/upload-photo/24",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -178,7 +178,37 @@
 								"api",
 								"user",
 								"upload-photo",
-								"18"
+								"24"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"antibegal87@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/lupa-password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"lupa-password"
 							]
 						}
 					},
@@ -196,7 +226,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMTEzMTMsImV4cCI6MTY4NTExNDkxM30.ZgTJaZ_1vMY08Z5fFeriA-MCu0RcXNrQsh6e9IN5FCo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2OTIyOTZ9.d34NihjBARteNLiEfysxRVpo4BVU1YPAHhGVuTtTzx8",
 								"type": "default"
 							}
 						],
@@ -223,12 +253,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2OTIyOTZ9.d34NihjBARteNLiEfysxRVpo4BVU1YPAHhGVuTtTzx8",
 								"type": "default"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/api/umkm/1",
+							"raw": "http://localhost:3000/api/umkm/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -237,7 +267,7 @@
 							"path": [
 								"api",
 								"umkm",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -250,7 +280,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2OTIyOTZ9.d34NihjBARteNLiEfysxRVpo4BVU1YPAHhGVuTtTzx8",
 								"type": "default"
 							}
 						],
@@ -308,12 +338,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTXVseWFudG8iLCJlbWFpbCI6ImFyaTEyM0BleGFtcGxlLmNvbSIsInJvbGUiOiJTZWxsZXJzIiwiaWF0IjoxNjg1Njk1MTA1fQ.c_yX7jDdsuBIyGyW_DtHuW_xvDTbH3j13590ponWvj4",
 								"type": "default"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/api/umkm/umkmProduct/2",
+							"raw": "http://localhost:3000/api/umkm/umkmProduct/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -323,7 +353,7 @@
 								"api",
 								"umkm",
 								"umkmProduct",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -336,12 +366,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTXVseWFudG8iLCJlbWFpbCI6ImFyaTEyM0BleGFtcGxlLmNvbSIsInJvbGUiOiJTZWxsZXJzIiwiaWF0IjoxNjg1Njk1MTA1fQ.c_yX7jDdsuBIyGyW_DtHuW_xvDTbH3j13590ponWvj4",
 								"type": "default"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/api/umkm/umkmService/8",
+							"raw": "http://localhost:3000/api/umkm/umkmService/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -351,7 +381,7 @@
 								"api",
 								"umkm",
 								"umkmService",
-								"8"
+								"1"
 							]
 						}
 					},
@@ -364,13 +394,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjUsIm5hbWUiOiJJbGhhbSBBbmRyZSIsImVtYWlsIjoiYW50aWJlZ2FsODdAZ21haWwuY29tIiwicm9sZSI6IkN1c3RvbWVycyIsImlhdCI6MTY4NTcxNjE3M30.lKwZi2Ozo0oDuC_9PtdUOiz6d75brBJFBYnjcrEQ0AA",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": " {\r\n  \"Nama_pemilik\": \"Novry Wotulo\",\r\n  \"Nama_usaha\": \"Ojek\",\r\n  \"Deskripsi\": \"Ojek\",\r\n  \"Kategori\": \"Lain-Lain\",\r\n  \"Alamat\": \"Tounelet, Kel. Tounelet, Kec. Langowan Barat, Kab. Minahasa, Sulawesi Utara\",\r\n  \"No_hp\": \"08535721902\",\r\n  \"latitude\": 1.2630564,\r\n  \"longitude\": 124.787888\r\n }",
+							"raw": " {\r\n  \"id_user\": 24,\r\n  \"Nama_usaha\": \"Ojek\",\r\n  \"Deskripsi\": \"Ojek\",\r\n  \"Kategori\": \"Lain-Lain\",\r\n  \"No_hp\": \"08535721902\",\r\n  \"latitude\": 1.2630564,\r\n  \"longitude\": 124.787888\r\n }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -400,13 +430,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTXVseWFudG8iLCJlbWFpbCI6ImFyaTEyM0BleGFtcGxlLmNvbSIsInJvbGUiOiJTZWxsZXJzIiwiaWF0IjoxNjg1Njk1MTA1fQ.c_yX7jDdsuBIyGyW_DtHuW_xvDTbH3j13590ponWvj4",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Nama_pemilik\": \"Widi Widayat Y\",\r\n    \"Nama_usaha\": \"DeepHert Coffee\",\r\n    \"Deskripsi\": \"Kami menjual beberapa jenis biji kopi dari beberapa daerah di Indonesia.\",\r\n    \"Kategori\": \"Cafe\",\r\n    \"Alamat\": \"Griya Safiya Blok C.5, Kel. Pakembaran, Kec. Slawi, Kab. Tegal, Jawa Tengah\",\r\n    \"No_hp\": \"089899879900\",\r\n    \"latitude\": \"-6.974008\",\r\n    \"longitude\": \"109.123633\"\r\n}",
+							"raw": "{\r\n    \"Nama_usaha\": \"DeepHert Coffee\",\r\n    \"Deskripsi\": \"Kami menjual beberapa jenis biji kopi dari beberapa daerah di Indonesia.\",\r\n    \"Kategori\": \"Cafe\",\r\n    \"No_hp\": \"089899879900\",\r\n    \"latitude\": \"-6.974008\",\r\n    \"longitude\": \"109.123633\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -414,7 +444,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/umkm/update/22",
+							"raw": "http://localhost:3000/api/umkm/update/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -424,7 +454,7 @@
 								"api",
 								"umkm",
 								"update",
-								"22"
+								"1"
 							]
 						}
 					},
@@ -437,12 +467,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTXVseWFudG8iLCJlbWFpbCI6ImFyaTEyM0BleGFtcGxlLmNvbSIsInJvbGUiOiJTZWxsZXJzIiwiaWF0IjoxNjg1Njk1MTA1fQ.c_yX7jDdsuBIyGyW_DtHuW_xvDTbH3j13590ponWvj4",
 								"type": "default"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/api/umkm/delete/21",
+							"raw": "http://localhost:3000/api/umkm/delete/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -452,7 +482,7 @@
 								"api",
 								"umkm",
 								"delete",
-								"21"
+								"1"
 							]
 						}
 					},
@@ -473,7 +503,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsIm5hbWUiOiJBcmkiLCJlbWFpbCI6ImFyaTEyQGV4YW1wbGUuY29tIiwicm9sZSI6IkN1c3RvbWVycyIsImlhdCI6MTY4NTY4NzM5M30.eK_wYBalZJZP9ToiALcG0RxG0C2J6WqQB9r45JY99f8",
 								"type": "default"
 							}
 						],
@@ -573,7 +603,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
@@ -582,17 +612,17 @@
 							"formdata": [
 								{
 									"key": "id_umkm",
-									"value": "9",
+									"value": "2",
 									"type": "default"
 								},
 								{
 									"key": "Nama",
-									"value": "Gelang Tali",
+									"value": "Helm",
 									"type": "default"
 								},
 								{
 									"key": "Harga",
-									"value": "5000",
+									"value": "12000",
 									"type": "default"
 								},
 								{
@@ -603,7 +633,7 @@
 								{
 									"key": "Photo",
 									"type": "file",
-									"src": "/C:/Users/arimlynt/Pictures/Picture8.png"
+									"src": "/C:/Users/arimlynt/Music/images.png"
 								}
 							],
 							"options": {
@@ -635,7 +665,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
@@ -644,7 +674,7 @@
 							"formdata": [
 								{
 									"key": "Nama",
-									"value": "Gantungan Kunci",
+									"value": "Helm Bogo",
 									"type": "default"
 								},
 								{
@@ -654,13 +684,13 @@
 								},
 								{
 									"key": "Diskon",
-									"value": "1000",
+									"value": "10",
 									"type": "text"
 								},
 								{
 									"key": "Photo",
 									"type": "file",
-									"src": "/C:/Users/arimlynt/Pictures/Picture1.jpg"
+									"src": "/C:/Users/arimlynt/Music/download (1).jpeg"
 								}
 							],
 							"options": {
@@ -670,7 +700,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/product/updateProduct/8",
+							"raw": "http://localhost:3000/api/product/updateProduct/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -680,7 +710,7 @@
 								"api",
 								"product",
 								"updateProduct",
-								"8"
+								"3"
 							]
 						}
 					},
@@ -693,7 +723,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
@@ -707,7 +737,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/product/deleteProduct/7",
+							"raw": "http://localhost:3000/api/product/deleteProduct/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -717,7 +747,7 @@
 								"api",
 								"product",
 								"deleteProduct",
-								"7"
+								"3"
 							]
 						}
 					},
@@ -735,7 +765,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMTIxMzEsImV4cCI6MTY4NTExNTczMX0.UrNCGJ0KeQ2b2kqPjMxE6DxdtDK09mpIVPUPZRXPiTc",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
@@ -817,13 +847,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMTIxMzEsImV4cCI6MTY4NTExNTczMX0.UrNCGJ0KeQ2b2kqPjMxE6DxdtDK09mpIVPUPZRXPiTc",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id_umkm\" : \"11\",\r\n    \"Nama\" : \"Sewa baju pengantin\",\r\n    \"Harga\" : \"200000\",\r\n    \"Diskon\" : \"0\"\r\n}",
+							"raw": "{\r\n    \"id_umkm\" : \"2\",\r\n    \"Nama\" : \"Sewa baju pengantin\",\r\n    \"Harga\" : \"200000\",\r\n    \"Diskon\" : \"0\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -853,13 +883,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"Nama\" : \"Smoothing\",\r\n    \"Harga\" : \"150000\",\r\n    \"Diskon\" : \"20000\" \r\n}",
+							"raw": "{\r\n    \"Nama\" : \"Jasa Antar Jemput\",\r\n    \"Harga\" : \"150000\",\r\n    \"Diskon\" : \"20000\" \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -867,7 +897,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/service/updateService/3",
+							"raw": "http://localhost:3000/api/service/updateService/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -877,7 +907,7 @@
 								"api",
 								"service",
 								"updateService",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -890,12 +920,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/api/service/deleteService/4",
+							"raw": "http://localhost:3000/api/service/deleteService/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -905,7 +935,7 @@
 								"api",
 								"service",
 								"deleteService",
-								"4"
+								"1"
 							]
 						}
 					},
@@ -923,7 +953,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
@@ -950,7 +980,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
@@ -1014,13 +1044,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
 								"type": "default"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id_user\": 18,\r\n  \"id_service\": 3,\r\n  \"Rating\": 5,\r\n  \"Comment\": \"Mantap, sesuai harapan\"\r\n}",
+							"raw": "{\r\n  \"id_user\": 25,\r\n  \"id_service\": 2,\r\n  \"Rating\": 5,\r\n  \"Comment\": \"Mantap, sesuai harapan\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
