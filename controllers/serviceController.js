@@ -9,7 +9,7 @@ exports.getAllService = async (req, res) => {
       attributes: ['id', 'Nama', 'Harga', 'Diskon'],
       include: {
         model: Umkm,
-        attributes: ['id', 'Nama_pemilik', 'Nama_usaha']
+        attributes: ['id', 'id_user', 'Nama_usaha']
       }
     });
     res.json(service);
@@ -26,7 +26,7 @@ exports.getServiceById = async (req, res) => {
       attributes: ['id', 'Nama', 'Harga', 'Diskon'],
       include: {
         model: Umkm,
-        attributes: ['id', 'Nama_Pemilik', 'Nama_usaha']
+        attributes: ['id', 'id_user', 'Nama_usaha']
       }
     });
     if (!service) {
@@ -48,7 +48,7 @@ exports.getServiceByIdwithReview = async (req, res) => {
       [ 
         {
           model: Umkm,
-          attributes: ['id', 'Nama_pemilik', 'Nama_usaha']
+          attributes: ['id', 'id_user', 'Nama_usaha']
         },
         {
           model: Review,
@@ -120,7 +120,7 @@ exports.updateService = async (req, res) => {
     res.status(200).json({
       message: 'Service updated successfully',
       service: {
-        id_produk: updatedService.id_produk,
+        id_service: updatedService.id_service,
         umkm: umkm,
         Nama: updatedService.Nama,
         Harga: updatedService.Harga,

@@ -20,6 +20,14 @@ const User = sequelize.define('user', {
       type: DataTypes.STRING,
       allowNull: false
     },
+    role: {
+      type: DataTypes.ENUM('Customers', 'Sellers'),
+      defaultValue: 'Customers'
+    },
+    alamat : {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     photo: {
       type: DataTypes.STRING,
       allowNull: true

@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db/index');
+const User = require('./userModels');
 
 const Umkm = sequelize.define('umkm', {
   id: {
@@ -7,9 +8,13 @@ const Umkm = sequelize.define('umkm', {
     primaryKey: true,
     autoIncrement: true,
   },
-  Nama_pemilik: {
-    type: DataTypes.STRING,
+  id_user: {
+    type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: User,
+      key: 'id_user'
+    }
   },
   Nama_usaha: {
     type: DataTypes.STRING,
@@ -20,10 +25,6 @@ const Umkm = sequelize.define('umkm', {
     allowNull: false,
   },
   Kategori: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  Alamat: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -40,5 +41,8 @@ const Umkm = sequelize.define('umkm', {
     allowNull: true,
   },
 });
+
+User.hasMany(Umkm, { foreignKey: 'id_user' });
+Umkm.belongsTo(User, { foreignKey: 'id_user', as: 'Pemilik' });
 
 module.exports = Umkm;

@@ -11,9 +11,9 @@ router.get('/umkmproduct/allService', auth.auth, umkmController.getAllUmkmWithSe
 router.get('/umkmProduct/:id', auth.auth, umkmController.getUmkmProductById);
 router.get('/umkmService/:id', auth.auth, umkmController.getUmkmServiceById);
 
-router.post('/create', auth.auth, umkmController.createUmkm);
-router.put('update/:id', auth.auth, umkmController.updateUmkm);
-router.delete('/delete/:id', auth.auth, umkmController.deleteUmkm);
+router.post('/create', auth.authSellers, umkmController.createUmkm);
+router.put('/update/:id', auth.authSellers, umkmController.updateUmkm);
+router.delete('/delete/:id', auth.authSellers, umkmController.deleteUmkm);
 
 module.exports = router;
 

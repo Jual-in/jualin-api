@@ -1,13 +1,20 @@
 const Umkm = require('../models/umkmModels');
+const User  = require('../models/userModels');
 const Product = require('../models/productModels');
 const Service = require('../models/serviceModels');
 const { Op } = require('sequelize');
 
 exports.getAllUmkm = async (req, res) => {
   try {
-    const umkm = await Umkm.findAll({ 
-      attributes: ['id', 'Nama_pemilik', 'Nama_usaha', 'Deskripsi', 'Kategori', 'Alamat', 'No_hp', 'latitude', 'longitude'] 
+    const umkm = await Umkm.findAll({
+      attributes: ['id', 'Nama_usaha', 'Deskripsi', 'Kategori', 'No_hp', 'latitude', 'longitude'],
+      include: [{
+        model: User,
+        as: 'Pemilik',
+        attributes: ['name', 'alamat', 'role'],
+      }]
     });
+
     res.send(umkm);
   } catch (error) {
     res.status(500).send({
@@ -17,20 +24,26 @@ exports.getAllUmkm = async (req, res) => {
 };
 
 exports.getUmkmById = async (req, res) => {
+  const { id } = req.params;
+  
   try {
-    const umkm = await Umkm.findByPk(req.params.id, { 
-      attributes: ['id', 'Nama_pemilik', 'Nama_usaha', 'Deskripsi', 'Kategori', 'Alamat', 'No_hp', 'latitude', 'longitude'] 
+    const umkm = await Umkm.findByPk(id, {
+      attributes: ['id', 'Nama_usaha', 'Deskripsi', 'Kategori', 'No_hp', 'latitude', 'longitude'],
+      include: [{
+        model: User,
+        as: 'Pemilik',
+        attributes: ['name', 'alamat', 'role'],
+      }]
     });
+
     if (!umkm) {
-      res.status(404).send({
-        message: `UMKM with id ${req.params.id} not found.`,
-      });
-    } else {
-      res.send(umkm);
+      return res.status(404).send({ message: 'Umkm not found' });
     }
+
+    res.send(umkm);
   } catch (error) {
     res.status(500).send({
-      message: error.message || 'Some error occurred while retrieving UMKM.',
+      message: error.message || 'Some error occurred while retrieving Umkm.',
     });
   }
 };
@@ -38,14 +51,19 @@ exports.getUmkmById = async (req, res) => {
 exports.getAllUmkmWithProduct = async (req, res) => {
   try {
     const umkms = await Umkm.findAll({
-      attributes: ['id', 'Nama_pemilik', 'Nama_usaha', 'Deskripsi', 'Kategori', 'Alamat', 'No_hp', 'latitude', 'longitude'],
-      include: {
+      attributes: ['id', 'Nama_usaha', 'Deskripsi', 'Kategori', 'No_hp', 'latitude', 'longitude'],
+      include: [{
         model: Product,
         attributes: ['id', 'Nama', 'Harga', 'Diskon','photo'],
         where: {
           id: { [Op.ne]: null }
         }
-      }
+      },
+      {
+        model: User,
+        as: 'Pemilik',
+        attributes: ['name', 'alamat', 'role']
+      }]
     });
     if (umkms.length === 0) {
       res.status(404).send({
@@ -64,14 +82,19 @@ exports.getAllUmkmWithProduct = async (req, res) => {
 exports.getAllUmkmWithService = async (req, res) => {
   try {
     const umkms = await Umkm.findAll({
-      attributes: ['id', 'Nama_pemilik', 'Nama_usaha', 'Deskripsi', 'Kategori', 'Alamat', 'No_hp', 'latitude', 'longitude'],
-      include: {
+      attributes: ['id', 'Nama_usaha', 'Deskripsi', 'Kategori', 'No_hp', 'latitude', 'longitude'],
+      include: [{
         model: Service,
         attributes: ['id', 'Nama', 'Harga', 'Diskon'],
         where: {
           id: { [Op.ne]: null }
         }
-      }
+      },
+      {
+        model: User,
+        as: 'Pemilik',
+        attributes: ['name', 'alamat', 'role']
+      }]
     });
     if (umkms.length === 0) {
       res.status(404).send({
@@ -90,12 +113,18 @@ exports.getAllUmkmWithService = async (req, res) => {
 exports.getUmkmProductById = async (req, res) => {
   try {
     const umkm = await Umkm.findByPk(req.params.id, { 
-      attributes: ['id', 'Nama_pemilik', 'Nama_usaha', 'Deskripsi', 'Kategori', 'Alamat', 'No_hp', 'latitude', 'longitude'],
-      include: 
+      attributes: ['id', 'Nama_usaha', 'Deskripsi', 'Kategori', 'No_hp', 'latitude', 'longitude'],
+      include:[ 
         {
           model: Product,
           attributes: ['id','Nama', 'Harga', 'photo', 'Diskon']
-        } 
+        },
+        {
+          model: User,
+          as: 'Pemilik',
+          attributes: ['name', 'alamat', 'role']
+        }
+      ] 
     });
     if (!umkm) {
       res.status(404).send({
@@ -114,12 +143,18 @@ exports.getUmkmProductById = async (req, res) => {
 exports.getUmkmServiceById = async (req, res) => {
   try {
     const umkm = await Umkm.findByPk(req.params.id, { 
-      attributes: ['id', 'Nama_pemilik', 'Nama_usaha', 'Deskripsi', 'Kategori', 'Alamat', 'No_hp', 'latitude', 'longitude'],
-      include: 
+      attributes: ['id', 'Nama_usaha', 'Deskripsi', 'Kategori', 'No_hp', 'latitude', 'longitude'],
+      include:[ 
         {
           model: Service,
           attributes: ['id','Nama', 'Harga', 'Diskon']
-        } 
+        },
+        {
+          model: User,
+          as: 'Pemilik',
+          attributes: ['name', 'alamat', 'role']
+        }
+      ] 
     });
     if (!umkm) {
       res.status(404).send({
@@ -137,41 +172,79 @@ exports.getUmkmServiceById = async (req, res) => {
 
 exports.createUmkm = async (req, res) => {
   try {
-    let umkms = req.body;
-    if (!Array.isArray(umkms)) {
-      umkms = [umkms];
+    const { id, id_user, Nama_usaha, Deskripsi, Kategori, No_hp, latitude, longitude } = req.body;
+    const user = await User.findByPk(id_user);
+    
+    if (!user) {
+      return res.status(404).json({ message: 'user not found' });
     }
-    const newUmkms = await Umkm.bulkCreate(umkms);
-    res.send({ message: 'Umkms created successfully', data: newUmkms });
-  } catch (error) {
-    res.status(500).send({
-      message: error.message || 'Some error occurred while creating the Umkms.',
+
+    const umkm = await Umkm.create({
+      id_user,
+      Nama_usaha, 
+      Deskripsi, 
+      Kategori, 
+      No_hp, 
+      latitude, 
+      longitude
     });
+
+    res.status(201).json({
+      message: 'Product created successfully',
+      product: {
+        id: umkm.id,
+        user: user,
+        Nama_usaha: umkm.Nama_usaha, 
+        Deskripsi: umkm.Deskripsi, 
+        Kategori: umkm.Kategori, 
+        No_hp: umkm.No_hp, 
+        latitude: umkm.latitude, 
+        longitude: umkm.longitude
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
 exports.updateUmkm = async (req, res) => {
-  const id = req.params.id;
-
-  const umkm = req.body;
-
+  const umkmId = req.params.id;
+  const { Nama_usaha, Deskripsi, Kategori, No_hp, latitude, longitude } = req.body;
   try {
-    const [rowsUpdated] = await Umkm.update(umkm, {
-      where: { id: id },
-    });
-    if (rowsUpdated === 0) {
-      res.status(404).send({
-        message: `UMKM with id ${id} not found.`,
-      });
-    } else {
-      res.send({
-        message: `UMKM with id ${id} was updated successfully.`,
-      });
+    const umkm = await Umkm.findByPk(umkmId);
+    if (!umkm) {
+      return res.status(404).json({ message: 'umkm not found' });
     }
-  } catch (error) {
-    res.status(500).send({
-      message: error.message || `Some error occurred while updating UMKM with id ${id}.`,
+    const user = await User.findByPk(umkm.id_user);
+    if (!user) {
+      return res.status(404).json({ message: 'user not found' });
+    }
+    let updatedUmkm = {};
+    updatedUmkm = await umkm.update({
+      Nama_usaha, 
+      Deskripsi, 
+      Kategori, 
+      No_hp, 
+      latitude, 
+      longitude
     });
+    res.status(200).json({
+      message: 'umkm updated successfully',
+      umkm: {
+        id: updatedUmkm.id,
+        user: user,
+        Nama_usaha: updatedUmkm.Nama_usaha, 
+        Deskripsi: updatedUmkm.Deskripsi, 
+        Kategori: updatedUmkm.Kategori, 
+        No_hp: updatedUmkm.No_hp, 
+        latitude: updatedUmkm.latitude, 
+        longitude: updatedUmkm.longitude
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
   }
 };
 
@@ -179,9 +252,20 @@ exports.deleteUmkm = async (req, res) => {
   const id = req.params.id;
 
   try {
+    // Hapus terlebih dahulu produk yang terkait dengan UMKM
+    await Product.destroy({
+      where: { id_umkm: id },
+    });
+      // Hapus juga layanan yang terkait dengan UMKM
+    await Service.destroy({
+      where: { id_umkm: id },
+    });
+    // Setelah produk dihapus, hapus UMKM
     const rowsDeleted = await Umkm.destroy({
       where: { id: id },
     });
+
+
     if (rowsDeleted === 0) {
       res.status(404).send({
         message: `UMKM with id ${id} not found.`,
@@ -197,3 +281,4 @@ exports.deleteUmkm = async (req, res) => {
     });
   }
 };
+

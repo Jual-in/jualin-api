@@ -11,7 +11,7 @@ exports.getAllProducts = async (req, res) => {
       attributes: ['id', 'Nama', 'Harga', 'Photo', 'Diskon'],
       include: {
         model: Umkm,
-        attributes: ['id', 'Nama_pemilik', 'Nama_usaha']
+        attributes: ['id', 'id_user', 'Nama_usaha']
       }
     });
     res.json(products);
@@ -28,7 +28,7 @@ exports.getProductById = async (req, res) => {
       attributes: ['id', 'Nama', 'Harga', 'Photo', 'Diskon'],
       include: {
         model: Umkm,
-        attributes: ['id', 'Nama_pemilik', 'Nama_usaha']
+        attributes: ['id', 'id_user', 'Nama_usaha']
       }
     });
     if (!product) {
@@ -50,7 +50,7 @@ exports.getProductByIdwithReview = async (req, res) => {
       [ 
         {
           model: Umkm,
-          attributes: ['id', 'Nama_pemilik', 'Nama_usaha']
+          attributes: ['id', 'id_user', 'Nama_usaha']
         },
         {
           model: Review,
@@ -206,7 +206,7 @@ exports.updateProduct = async (req, res) => {
   res.status(200).json({
     message: 'Product updated successfully',
     product: {
-      id_produk: updatedProduct.id_produk,
+      id_produk: updatedProduct.id,
       umkm: umkm,
       Nama: updatedProduct.Nama,
       Harga: updatedProduct.Harga,
