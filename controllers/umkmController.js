@@ -4,6 +4,46 @@ const Product = require('../models/productModels');
 const Service = require('../models/serviceModels');
 const { Op } = require('sequelize');
 
+exports.RecommendUmkm = async (req, res) => {
+  const umkms = await Umkm.findAll();
+
+  if (umkms.length === 0) {
+    return res.status(404).json({ message: 'Tidak ada UMKM yang ditemukan.' });
+  }
+
+  const latitude = parseFloat(req.body.latitude);
+  const longitude = parseFloat(req.body.longitude);
+
+  // Menghitung jarak antara lokasi pengguna dan setiap UMKM
+  umkms.forEach((umkm) => {
+    const distance = Math.sqrt(
+      Math.pow(umkm.latitude - latitude, 2) +
+        Math.pow(umkm.longitude - longitude, 2)
+    );
+    umkm.distance = distance;
+  });
+
+  // Mengurutkan UMKM berdasarkan jarak terdekat
+  umkms.sort((a, b) => a.distance - b.distance);
+
+  // Mengambil 20 UMKM terdekat dan memformat data yang akan dikembalikan
+  const nearby_umkm = umkms
+    .slice(0, 20)
+    .map((umkm) => ({
+      id: umkm.id,
+      Nama_usaha: umkm.Nama_usaha,
+      Deskripsi: umkm.Deskripsi,
+      Kategori: umkm.Kategori,
+      Alamat: umkm.Alamat,
+      No_hp: umkm.No_hp,
+      latitude: umkm.latitude,
+      longitude: umkm.longitude,
+    }));
+
+  res.json(nearby_umkm);
+};
+
+
 exports.getAllUmkm = async (req, res) => {
   try {
     const umkm = await Umkm.findAll({
@@ -172,35 +212,43 @@ exports.getUmkmServiceById = async (req, res) => {
 
 exports.createUmkm = async (req, res) => {
   try {
-    const { id, id_user, Nama_usaha, Deskripsi, Kategori, No_hp, latitude, longitude } = req.body;
-    const user = await User.findByPk(id_user);
-    
-    if (!user) {
-      return res.status(404).json({ message: 'user not found' });
+    const umkms = req.body;
+
+    const createdUmkms = [];
+
+    for (const umkm of umkms) {
+      const { id_user, Nama_usaha, Deskripsi, Kategori, No_hp, latitude, longitude } = umkm;
+
+      const user = await User.findByPk(id_user);
+      if (!user) {
+        return res.status(404).json({ message: 'user not found' });
+      }
+
+      const createdUmkm = await Umkm.create({
+        id_user,
+        Nama_usaha,
+        Deskripsi,
+        Kategori,
+        No_hp,
+        latitude,
+        longitude,
+      });
+
+      createdUmkms.push({
+        id: createdUmkm.id,
+        user,
+        Nama_usaha: createdUmkm.Nama_usaha,
+        Deskripsi: createdUmkm.Deskripsi,
+        Kategori: createdUmkm.Kategori,
+        No_hp: createdUmkm.No_hp,
+        latitude: createdUmkm.latitude,
+        longitude: createdUmkm.longitude,
+      });
     }
 
-    const umkm = await Umkm.create({
-      id_user,
-      Nama_usaha, 
-      Deskripsi, 
-      Kategori, 
-      No_hp, 
-      latitude, 
-      longitude
-    });
-
     res.status(201).json({
-      message: 'Product created successfully',
-      product: {
-        id: umkm.id,
-        user: user,
-        Nama_usaha: umkm.Nama_usaha, 
-        Deskripsi: umkm.Deskripsi, 
-        Kategori: umkm.Kategori, 
-        No_hp: umkm.No_hp, 
-        latitude: umkm.latitude, 
-        longitude: umkm.longitude
-      },
+      message: 'Products created successfully',
+      umkms: createdUmkms,
     });
   } catch (error) {
     console.error(error);

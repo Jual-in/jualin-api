@@ -4,7 +4,7 @@ const auth = require('../middleware/auth');
 const nodemailer = require('nodemailer');
 const fs = require('fs');
 require('dotenv').config();
-// const { uploadFileToGCS, bucket  } = require('../middleware/upload');
+const { uploadFileToGCS, bucket  } = require('../middleware/upload');
 
 exports.registerUser = async (req, res) => {
   const { name, email, password, role } = req.body;
@@ -133,49 +133,6 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-exports.uploadPhoto = async (req, res) => {
-  const { id_user } = req.params;
-  const photo = req.file;
-
-  try {
-    const user = await User.findByPk(id_user);
-    if (!user) {
-      // Hapus file gambar yang diupload
-      if (photo) {
-        fs.unlink(`uploads/users/${photo.filename}`, (err, deleted) => {
-          if (err) {
-            console.log(err);
-          }
-        });
-      }
-      res.status(404).json({
-        message: 'User not found'
-      });
-    } else {
-      // Menghapus file gambar lama
-      const oldPhoto = user.photo;
-      if (oldPhoto) {
-        fs.unlink(`uploads/users/${oldPhoto}`, (err, deleted) => {
-          if(err) {
-            console.log(err);
-          }
-        });
-      }
-
-      // Memperbarui data pengguna dengan foto baru
-      await user.update({ photo: photo.filename });
-      res.status(200).json({
-        message: 'Photo uploaded successfully'
-      });
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: 'Failed to upload photo'
-    });
-  }
-};
-
 // exports.uploadPhoto = async (req, res) => {
 //   const { id_user } = req.params;
 //   const photo = req.file;
@@ -183,25 +140,30 @@ exports.uploadPhoto = async (req, res) => {
 //   try {
 //     const user = await User.findByPk(id_user);
 //     if (!user) {
+//       // Hapus file gambar yang diupload
+//       if (photo) {
+//         fs.unlink(`uploads/users/${photo.filename}`, (err, deleted) => {
+//           if (err) {
+//             console.log(err);
+//           }
+//         });
+//       }
 //       res.status(404).json({
 //         message: 'User not found'
 //       });
 //     } else {
-//       // Menghapus file gambar lama di GCS
+//       // Menghapus file gambar lama
 //       const oldPhoto = user.photo;
 //       if (oldPhoto) {
-//         const oldPhotoUrl = oldPhoto;
-//         const oldPhotoId = oldPhotoUrl.split('/').pop();
-//         const file = bucket.file(oldPhotoId);
-//         await file.delete();
+//         fs.unlink(`uploads/users/${oldPhoto}`, (err, deleted) => {
+//           if(err) {
+//             console.log(err);
+//           }
+//         });
 //       }
 
-//       // Mengupload file gambar baru ke GCS
-//       const photoUrl = await uploadFileToGCS(photo);
-
 //       // Memperbarui data pengguna dengan foto baru
-//       await user.update({ photo: photoUrl });
-      
+//       await user.update({ photo: photo.filename });
 //       res.status(200).json({
 //         message: 'Photo uploaded successfully'
 //       });
@@ -214,121 +176,42 @@ exports.uploadPhoto = async (req, res) => {
 //   }
 // };
 
+exports.uploadPhoto = async (req, res) => {
+  const { id_user } = req.params;
+  const photo = req.file;
 
-// // Lupa password
-// exports.forgotPassword = async (req, res) => {
-//   const { email } = req.body;
+  try {
+    const user = await User.findByPk(id_user);
+    if (!user) {
+      res.status(404).json({
+        message: 'User not found'
+      });
+    } else {
+      // Menghapus file gambar lama di GCS
+      const oldPhoto = user.photo;
+      if (oldPhoto) {
+        const oldPhotoUrl = oldPhoto;
+        const oldPhotoId = oldPhotoUrl.split('/').pop();
+        const file = bucket.file(oldPhotoId);
+        await file.delete();
+      }
 
-//   try {
-//     const user = await User.findOne({
-//       where: {
-//         email: req.body.email
-//       }
-//     });
+      // Mengupload file gambar baru ke GCS
+      const photoUrl = await uploadFileToGCS(photo);
 
-//     if (!user) {
-//       return res.status(404).json({
-//         message: 'User not found'
-//       });
-//     }
+      // Memperbarui data pengguna dengan foto baru
+      await user.update({ photo: photoUrl });
+      
+      res.status(200).json({
+        message: 'Photo uploaded successfully'
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: 'Failed to upload photo'
+    });
+  }
+};
 
-//     const token = jwt.sign({ id: user.id_user }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-//     user.resetPasswordToken = token;
-//     user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
-//     await user.save();
-
-//     const transporter = nodemailer.createTransport({
-//       service: 'gmail',
-//       auth: {
-//         user: process.env.EMAIL_USERNAME,
-//         pass: process.env.EMAIL_PASSWORD
-//       }
-//     });
-
-//     const mailOptions = {
-//       from: process.env.EMAIL_USERNAME,
-//       to: user.email,
-//       subject: 'Password Reset Request',
-//       text: `Hi ${user.name},\n\nYou are receiving this email because you (or someone else) requested to reset your password.\n\nPlease click on the following link, or paste this into your browser to complete the process:\n\n${process.env.CLIENT_URL}/reset-password/${token}\n\nIf you did not request this, please ignore this email and your password will remain unchanged.\n`
-//     };
-
-//     transporter.sendMail(mailOptions, (error, info) => {
-//       if (error) {
-//         console.log(error);
-//         return res.status(500).json({
-//           message: 'Failed to send email'
-//         });
-//       } else {
-//         console.log('Email sent: ' + info.response);
-//         return res.status(200).json({
-//           message: 'Email sent successfully'
-//         });
-//       }
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({
-//       message: 'Failed to process request'
-//     });
-//   }
-// };
-
-// // Reset password
-// exports.resetPassword = async (req, res) => {
-//   const { token } = req.params;
-//   const { password } = req.body;
-
-//   try {
-//     const user = await User.findOne({
-//       resetPasswordToken: token,
-//       resetPasswordExpires: { $gt: Date.now() }
-//     });
-
-//     if (!user) {
-//       return res.status(400).json({
-//         message: 'Invalid or expired token'
-//       });
-//     }
-
-//     user.password = auth.hashPassword(password);
-//     user.resetPasswordToken = undefined;
-//     user.resetPasswordExpires = undefined;
-//     await user.save();
-
-//     const transporter = nodemailer.createTransport({
-//       service: 'gmail',
-//       auth: {
-//         user: process.env.EMAIL_USERNAME,
-//         pass: process.env.EMAIL_PASSWORD
-//       }
-//     });
-
-//     const mailOptions = {
-//       from: process.env.EMAIL_USERNAME,
-//       to: user.email,
-//       subject: 'Password Reset Confirmation',
-//       text: `Hi ${user.name},\n\nYour password has been reset successfully.\n`
-//     };
-
-//     transporter.sendMail(mailOptions, (error, info) => {
-//       if (error) {
-//         console.log(error);
-//         return res.status(500).json({
-//           message: 'Failed to send email'
-//         });
-//       } else {
-//         console.log('Email sent: ' + info.response);
-//         return res.status(200).json({
-//           message: 'Password reset successfully'
-//         });
-//       }
-//     });
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({
-//       message: 'Failed to process request'
-//     });
-//   }
-// };
  

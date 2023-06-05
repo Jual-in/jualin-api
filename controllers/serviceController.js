@@ -84,8 +84,8 @@ exports.createService = async (req, res) => {
     });
 
     res.status(201).json({
-      message: 'Product created successfully',
-      product: {
+      message: 'service created successfully',
+      service: {
         id: service.id,
         umkm: umkm,
         Nama: service.Nama,
