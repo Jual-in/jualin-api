@@ -12,7 +12,7 @@ exports.searchProducts = async (req, res) => {
             [Op.like]: `%${type}%`
             }
         },
-        attributes: ['id', 'Nama', 'Harga', 'Diskon', 'Photo']
+        attributes: ['id', 'Nama', 'Harga', 'Diskon', 'Photo', 'id_umkm']
         });
 
         if (products.length === 0) {
@@ -35,7 +35,7 @@ exports.searchServices = async (req, res) => {
             [Op.like]: `%${type}%`
             }
         },
-        attributes: ['id', 'Nama', 'Harga', 'Diskon']
+        attributes: ['id', 'Nama', 'Harga', 'Diskon', 'id_umkm']
         });
 
         if (services.length === 0) {
