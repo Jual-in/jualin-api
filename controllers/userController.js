@@ -1,8 +1,6 @@
 const User  = require('../models/userModels');
 const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
-const nodemailer = require('nodemailer');
-const fs = require('fs');
 require('dotenv').config();
 const { uploadFileToGCS, bucket  } = require('../middleware/upload');
 
