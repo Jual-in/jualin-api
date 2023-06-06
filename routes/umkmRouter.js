@@ -3,8 +3,6 @@ const router = express.Router();
 const umkmController = require('../controllers/umkmController');
 const auth = require('../middleware/auth');
 
-// router.get('/rekomendasi', umkmController.getAllUmkmWithAddress);
-
 router.get('/', auth.auth, umkmController.getAllUmkm);
 router.get('/:id', auth.auth, umkmController.getUmkmById);
 
@@ -15,8 +13,8 @@ router.get('/umkmService/:id', auth.auth, umkmController.getUmkmServiceById);
 
 router.post('/nearby', umkmController.RecommendUmkm);
 
-router.post('/create', auth.authSellers, umkmController.createUmkm);
-router.put('/update/:id', auth.authSellers, umkmController.updateUmkm);
+router.post('/create/users/:userid', auth.authSellers, umkmController.createUmkm);
+router.put('/update/users/:id', auth.authSellers, umkmController.updateUmkm);
 router.delete('/delete/:id', auth.authSellers, umkmController.deleteUmkm);
 
 module.exports = router;

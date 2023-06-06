@@ -43,7 +43,6 @@ exports.RecommendUmkm = async (req, res) => {
   res.json(nearby_umkm);
 };
 
-
 exports.getAllUmkm = async (req, res) => {
   try {
     const umkm = await Umkm.findAll({
@@ -212,29 +211,27 @@ exports.getUmkmServiceById = async (req, res) => {
 
 exports.createUmkm = async (req, res) => {
   try {
-    const umkms = req.body;
+    const userId = req.params.userid;
+    const { Nama_usaha, Deskripsi, Kategori, No_hp, latitude, longitude } = req.body;
 
-    const createdUmkms = [];
+    const user = await User.findByPk(userId);
+    if (!user) {
+      return res.status(404).json({ message: 'user not found' });
+    }
 
-    for (const umkm of umkms) {
-      const { id_user, Nama_usaha, Deskripsi, Kategori, No_hp, latitude, longitude } = umkm;
+    const createdUmkm = await Umkm.create({
+      id_user: userId,
+      Nama_usaha,
+      Deskripsi,
+      Kategori,
+      No_hp,
+      latitude,
+      longitude,
+    });
 
-      const user = await User.findByPk(id_user);
-      if (!user) {
-        return res.status(404).json({ message: 'user not found' });
-      }
-
-      const createdUmkm = await Umkm.create({
-        id_user,
-        Nama_usaha,
-        Deskripsi,
-        Kategori,
-        No_hp,
-        latitude,
-        longitude,
-      });
-
-      createdUmkms.push({
+    res.status(201).json({
+      message: 'UMKM created successfully',
+      umkm: {
         id: createdUmkm.id,
         user,
         Nama_usaha: createdUmkm.Nama_usaha,
@@ -243,12 +240,7 @@ exports.createUmkm = async (req, res) => {
         No_hp: createdUmkm.No_hp,
         latitude: createdUmkm.latitude,
         longitude: createdUmkm.longitude,
-      });
-    }
-
-    res.status(201).json({
-      message: 'Products created successfully',
-      umkms: createdUmkms,
+      },
     });
   } catch (error) {
     console.error(error);
@@ -257,16 +249,16 @@ exports.createUmkm = async (req, res) => {
 };
 
 exports.updateUmkm = async (req, res) => {
-  const umkmId = req.params.id;
+  const userId = req.params.id;
   const { Nama_usaha, Deskripsi, Kategori, No_hp, latitude, longitude } = req.body;
   try {
-    const umkm = await Umkm.findByPk(umkmId);
-    if (!umkm) {
-      return res.status(404).json({ message: 'umkm not found' });
-    }
-    const user = await User.findByPk(umkm.id_user);
+    const user = await User.findByPk(userId);
     if (!user) {
       return res.status(404).json({ message: 'user not found' });
+    }
+    const umkm = await Umkm.findOne({ where: { id_user: userId } });
+    if (!umkm) {
+      return res.status(404).json({ message: 'umkm not found' });
     }
     let updatedUmkm = {};
     updatedUmkm = await umkm.update({

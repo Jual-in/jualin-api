@@ -36,8 +36,6 @@ exports.registerUser = async (req, res) => {
   }
 };
 
-
-
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.findAll();
@@ -132,49 +130,6 @@ exports.updateUser = async (req, res) => {
     });
   }
 };
-
-// exports.uploadPhoto = async (req, res) => {
-//   const { id_user } = req.params;
-//   const photo = req.file;
-
-//   try {
-//     const user = await User.findByPk(id_user);
-//     if (!user) {
-//       // Hapus file gambar yang diupload
-//       if (photo) {
-//         fs.unlink(`uploads/users/${photo.filename}`, (err, deleted) => {
-//           if (err) {
-//             console.log(err);
-//           }
-//         });
-//       }
-//       res.status(404).json({
-//         message: 'User not found'
-//       });
-//     } else {
-//       // Menghapus file gambar lama
-//       const oldPhoto = user.photo;
-//       if (oldPhoto) {
-//         fs.unlink(`uploads/users/${oldPhoto}`, (err, deleted) => {
-//           if(err) {
-//             console.log(err);
-//           }
-//         });
-//       }
-
-//       // Memperbarui data pengguna dengan foto baru
-//       await user.update({ photo: photo.filename });
-//       res.status(200).json({
-//         message: 'Photo uploaded successfully'
-//       });
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({
-//       message: 'Failed to upload photo'
-//     });
-//   }
-// };
 
 exports.uploadPhoto = async (req, res) => {
   const { id_user } = req.params;

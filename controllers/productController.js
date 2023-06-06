@@ -69,55 +69,6 @@ exports.getProductByIdwithReview = async (req, res) => {
   }
 };
 
-// exports.createProduct = async (req, res) => {
-//   const { id_umkm, Nama, Harga, Diskon } = req.body;
-//   try {
-//     const umkm = await Umkm.findByPk(id_umkm);
-//     if (!umkm) {
-//       if (req.file) {
-//         // Hapus file gambar jika UMKM tidak ditemukan
-//         fs.unlinkSync(req.file.path);
-//       }
-//       return res.status(404).json({ message: 'UMKM not found' });
-//     }
-//     let product = {};
-//     if (req.file) {
-//       product = await Product.create({
-//         id_umkm,
-//         Nama,
-//         Harga,
-//         Diskon,
-//         Photo: req.file.filename,
-//       });
-//     } else {
-//       product = await Product.create({
-//         id_umkm,
-//         Nama,
-//         Harga,
-//         Diskon
-//       });
-//     }
-//     res.status(201).json({
-//       message: 'Product created successfully',
-//       product: {
-//         id: product.id,
-//         umkm: umkm,
-//         Nama: product.Nama,
-//         Harga: product.Harga,
-//         Diskon: product.Diskon,
-//         Photo: product.Photo,
-//       },
-//     });
-//   } catch (error) {
-//     console.error(error);
-//     if(req.file) {
-//       // Hapus file gambar jika terjadi error
-//       fs.unlinkSync(req.file.path);
-//     }
-//     res.status(500).json({ message: 'Internal server error' });
-//   }
-// };
-
 exports.createProduct = async (req, res) => {
   const { id_umkm, Nama, Harga, Diskon } = req.body;
   try {
