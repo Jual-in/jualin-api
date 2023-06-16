@@ -19,7 +19,7 @@ The jual.in REST API is developed for the jual.in application, which is used to 
     - POST: `/user/login` - Login users
     - POST: `/user/register` - Register new users
     - POST: `/user/upload-photo/:id_user` - Upload user's photo
-    - PUT: `/user/update/:id_user - Update` user's data
+    - PUT: `/user/update/:id_user` - Update user's data
 2. UMKM
     - GET: `/umkm/` - Get all UMKM
     - GET: `/umkm/:id` - Get UMKM by ID
@@ -67,7 +67,7 @@ The jual.in REST API is developed for the jual.in application, which is used to 
 5. Enter CMD and navigate to the API directory.
 6. Run the "npm run start" command
 
-- Note 📌 
+Note 📌 :
 <i> Make sure you have installed my SQL and Node JS and make sure to create folder "uploads/users & product" folder to save the images locally </i>
 
 - Testing live API in postman
