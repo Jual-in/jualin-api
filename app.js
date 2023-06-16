@@ -19,6 +19,7 @@ app.use('/api/service', serviceRouter);
 app.use('/api/review', reviewRouter);
 app.use('/api/search', searchRouter);
 
-app.listen(3000, () => {
-  console.log('Server started on port 3000');
-});
+const PORT = process.env.PORT || 8000
+app.listen(PORT, () => {
+    console.log("Server is up and listening on " + PORT)
+})

@@ -1,0 +1,1156 @@
+{
+	"info": {
+		"_postman_id": "af598a73-76a6-4403-9485-778f8f13d088",
+		"name": "jual-in-api-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/user",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get users by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/user/71",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"user",
+								"71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"ari123@gmail.com\",\r\n  \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/user/login",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Ari Mulyanto\",\r\n  \"email\": \"ari123gmail.com\",\r\n  \"password\": \"password\",\r\n  \"role\" : \"Sellers\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/user/register",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update data users",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2OTIyOTZ9.d34NihjBARteNLiEfysxRVpo4BVU1YPAHhGVuTtTzx8",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ari Mulyanto\",\r\n    \"email\": \"ari123@gmail.com\",\r\n    \"password\": \"password\",\r\n    \"alamat\": \"Jl Priksan Gg Bengkel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/user/update/71",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"user",
+								"update",
+								"71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add photo users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkZhamFyIFB1cm5vbW8iLCJlbWFpbCI6IkZhamFyMTIzQGdtYWlsLmNvbSIsInJvbGUiOiJTZWxsZXJzIiwiaWF0IjoxNjg2MjI0MDA3fQ.Fuqln6vzU9Y05NHEue2FZRValCvEGci6FHiJm6ho5Ak",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/arimlynt/Pictures/Ari.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/user/upload-photo/71",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"user",
+								"upload-photo",
+								"71"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "umkm",
+			"item": [
+				{
+					"name": "Get ALL data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjYsIm5hbWUiOiJNIENob2lydWwgQW1pbiIsImVtYWlsIjoiY2hvaXJ1bDEyM0BnbWFpbC5jb20iLCJyb2xlIjoiU2VsbGVycyIsImlhdCI6MTY4NTcyMjg3NX0.62W06b_319fase6TRQVJiXbMOw1-ygYSUrARsPeHnYs",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data UMKM by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2OTIyOTZ9.d34NihjBARteNLiEfysxRVpo4BVU1YPAHhGVuTtTzx8",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/2",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data UMKM Product",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2OTIyOTZ9.d34NihjBARteNLiEfysxRVpo4BVU1YPAHhGVuTtTzx8",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/umkmproduct/allProduct",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"umkmproduct",
+								"allProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data UMKM Service",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjYsIm5hbWUiOiJNIENob2lydWwgQW1pbiIsImVtYWlsIjoiY2hvaXJ1bDEyM0BnbWFpbC5jb20iLCJyb2xlIjoiU2VsbGVycyIsImlhdCI6MTY4NTcyMjg3NX0.62W06b_319fase6TRQVJiXbMOw1-ygYSUrARsPeHnYs",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/umkmproduct/allService",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"umkmproduct",
+								"allService"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data UMKM Product by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTXVseWFudG8iLCJlbWFpbCI6ImFyaTEyM0BleGFtcGxlLmNvbSIsInJvbGUiOiJTZWxsZXJzIiwiaWF0IjoxNjg1Njk1MTA1fQ.c_yX7jDdsuBIyGyW_DtHuW_xvDTbH3j13590ponWvj4",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/69/product",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"69",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data UMKM Service by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTXVseWFudG8iLCJlbWFpbCI6ImFyaTEyM0BleGFtcGxlLmNvbSIsInJvbGUiOiJTZWxsZXJzIiwiaWF0IjoxNjg1Njk1MTA1fQ.c_yX7jDdsuBIyGyW_DtHuW_xvDTbH3j13590ponWvj4",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/69/service",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"69",
+								"service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tambah data UMKM",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjYsIm5hbWUiOiJNIENob2lydWwgQW1pbiIsImVtYWlsIjoiY2hvaXJ1bDEyM0BnbWFpbC5jb20iLCJyb2xlIjoiU2VsbGVycyIsImlhdCI6MTY4NTcyMjg3NX0.62W06b_319fase6TRQVJiXbMOw1-ygYSUrARsPeHnYs",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nama_usaha\": \"Toko Kelontong Ari\",\r\n    \"Deskripsi\": \"Teko kelontong ari menjual berbagai makanan dan minuman serta sembako\",\r\n    \"Kategori\": \"Kelontong\",\r\n    \"No_hp\": \"085654321990\",\r\n    \"latitude\": -7.767783445310987,\r\n    \"longitude\": 113.22116993749171\r\n}\r\n   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/create/users/71",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"create",
+								"users",
+								"71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubah Data UMKM",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTXVseWFudG8iLCJlbWFpbCI6ImFyaTEyM0BleGFtcGxlLmNvbSIsInJvbGUiOiJTZWxsZXJzIiwiaWF0IjoxNjg1Njk1MTA1fQ.c_yX7jDdsuBIyGyW_DtHuW_xvDTbH3j13590ponWvj4",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nama_usaha\": \"Toko Kelontong Ari M\",\r\n    \"Deskripsi\": \"Teko kelontong ari menjual berbagai makanan dan minuman serta sembako\",\r\n    \"Kategori\": \"Kelontong\",\r\n    \"No_hp\": \"085654321990\",\r\n    \"latitude\": -7.767783445310987,\r\n    \"longitude\": 113.22116993749171\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/update/users/71",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"update",
+								"users",
+								"71"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Data",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjQsIm5hbWUiOiJBcmkgTXVseWFudG8iLCJlbWFpbCI6ImFyaTEyM0BleGFtcGxlLmNvbSIsInJvbGUiOiJTZWxsZXJzIiwiaWF0IjoxNjg1Njk1MTA1fQ.c_yX7jDdsuBIyGyW_DtHuW_xvDTbH3j13590ponWvj4",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/delete/69",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"delete",
+								"69"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get Data Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsIm5hbWUiOiJBcmkiLCJlbWFpbCI6ImFyaTEyQGV4YW1wbGUuY29tIiwicm9sZSI6IkN1c3RvbWVycyIsImlhdCI6MTY4NTY4NzM5M30.eK_wYBalZJZP9ToiALcG0RxG0C2J6WqQB9r45JY99f8",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/product/",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data Product by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsIm5hbWUiOiJBcmkiLCJlbWFpbCI6ImFyaTEyQGV4YW1wbGUuY29tIiwicm9sZSI6IkN1c3RvbWVycyIsImlhdCI6MTY4NTY4NzM5M30.eK_wYBalZJZP9ToiALcG0RxG0C2J6WqQB9r45JY99f8",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/product/80",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"product",
+								"80"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Tidak Dipakai) Get Data Product with Review",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/product/productReview/6",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"product",
+								"productReview",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tambah Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_umkm",
+									"value": "69",
+									"type": "default"
+								},
+								{
+									"key": "Nama",
+									"value": "Beras 1Kg",
+									"type": "default"
+								},
+								{
+									"key": "Harga",
+									"value": "12000",
+									"type": "default"
+								},
+								{
+									"key": "Diskon",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "Photo",
+									"type": "file",
+									"src": "/C:/Users/arimlynt/Music/download (9).jpeg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/product/createProduct",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"product",
+								"createProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Data Product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Nama",
+									"value": "Beras 1,5 Kg",
+									"type": "default"
+								},
+								{
+									"key": "Harga",
+									"value": "20000",
+									"type": "default"
+								},
+								{
+									"key": "Diskon",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "Photo",
+									"type": "file",
+									"src": "/C:/Users/arimlynt/Music/download (10).jpeg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/product/updateProduct/191",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"product",
+								"updateProduct",
+								"191"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/product/deleteProduct/191",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"product",
+								"deleteProduct",
+								"191"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "Get data service",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/service/",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"service",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get data service by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/service/60",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"service",
+								"60"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(Tidak Dipakai) Get data service by id with review",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJpIE11bHlhbnRvIiwiZW1haWwiOiJhcmkxMjNAZXhhbXBsZS5jb20iLCJpYXQiOjE2ODUxMDg0NDUsImV4cCI6MTY4NTExMjA0NX0.cHbJmF2-aaIkIyzIZFrfHFcIxirwhWC4-GKBq9TQ3Wo",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/service/serviceReview/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"service",
+								"serviceReview",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tambah service",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_umkm\" : \"69\",\r\n    \"Nama\" : \"Jasa Penitipan Barang\",\r\n    \"Harga\" : \"100000\",\r\n    \"Diskon\" : \"0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/service/createService",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"service",
+								"createService"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ubah Data Service",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nama\" : \"Jasa Antar Jemput\",\r\n    \"Harga\" : \"150000\",\r\n    \"Diskon\" : \"0\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/service/updateService/60",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"service",
+								"updateService",
+								"60"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Data Service",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsIm5hbWUiOiJBcmkgTWx5bnQiLCJlbWFpbCI6ImFyaTM1QGV4YW1wbGUuY29tIiwicm9sZSI6IlNlbGxlcnMiLCJpYXQiOjE2ODU2ODc0ODV9.QPLaLu0byzhLbi1akhRJgxDkkpROEwokSLd3trgcLuI",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/service/deleteService/60",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"service",
+								"deleteService",
+								"60"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "Search Data Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsIm5hbWUiOiJBcmkiLCJlbWFpbCI6ImFyaTEyQGV4YW1wbGUuY29tIiwicm9sZSI6IkN1c3RvbWVycyIsImlhdCI6MTY4NTY4NzM5M30.eK_wYBalZJZP9ToiALcG0RxG0C2J6WqQB9r45JY99f8",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/search/product?type=sepatu",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"search",
+								"product"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "sepatu"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Data Service",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjEsIm5hbWUiOiJBcmkiLCJlbWFpbCI6ImFyaTEyQGV4YW1wbGUuY29tIiwicm9sZSI6IkN1c3RvbWVycyIsImlhdCI6MTY4NTY4NzM5M30.eK_wYBalZJZP9ToiALcG0RxG0C2J6WqQB9r45JY99f8",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/search/service?type=sewa",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"search",
+								"service"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "sewa"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rekomendasi",
+			"item": [
+				{
+					"name": "Nearby",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjYsIm5hbWUiOiJNIENob2lydWwgQW1pbiIsImVtYWlsIjoiY2hvaXJ1bDEyM0BnbWFpbC5jb20iLCJyb2xlIjoiU2VsbGVycyIsImlhdCI6MTY4NTcyMjg3NX0.62W06b_319fase6TRQVJiXbMOw1-ygYSUrARsPeHnYs",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/nearby?latitude=-7.76778&longitude=113.221",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"nearby"
+							],
+							"query": [
+								{
+									"key": "latitude",
+									"value": "-7.76778"
+								},
+								{
+									"key": "longitude",
+									"value": "113.221"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rekomendasi",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jualin-ml-umkm-service-yx5zrdv2ka-et.a.run.app/api/umkm/rekomendasi?category=Fashion,Otomotif,Elektronik",
+							"protocol": "https",
+							"host": [
+								"jualin-ml-umkm-service-yx5zrdv2ka-et",
+								"a",
+								"run",
+								"app"
+							],
+							"path": [
+								"api",
+								"umkm",
+								"rekomendasi"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Fashion,Otomotif,Elektronik"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

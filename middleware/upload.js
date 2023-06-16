@@ -59,3 +59,50 @@ const uploadFileToGCS = (file) => {
 };
 
 module.exports = { upload, uploadFileToGCS, bucket  };
+
+//Run the following code to save the image in local
+// const multer = require('multer');
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'uploads/users');
+//   },
+//   filename: (req, file, cb) => {
+//     const date = new Date().toISOString().replace(/:/g, '-');
+//     cb(null, date + '-' + file.originalname);
+//   }
+// });
+
+// const fileFilter = (req, file, cb) => {
+//   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+//     cb(null, true);
+//   } else {
+//     cb(null, false);
+//   }
+// };
+
+// const productStorage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, 'uploads/product');
+//   },
+//   filename: (req, file, cb) => {
+//     const date = new Date().toISOString().replace(/:/g, '-');
+//     cb(null, date + '-' + file.originalname);
+//   }
+// });
+
+// const productFileFilter = (req, file, cb) => {
+//   if (file.mimetype === 'image/jpeg' || file.mimetype=== 'image/png') {
+//     cb(null, true);
+//   } else {
+//     cb(null, false);
+//   }
+// };
+
+// const upload = multer({ storage: storage, fileFilter: fileFilter });
+// const productUpload = multer({ storage: productStorage, fileFilter: productFileFilter });
+
+// module.exports = {
+//   upload,
+//   productUpload
+// };
